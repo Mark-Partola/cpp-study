@@ -3,4 +3,4 @@ project(study)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(study sort-int-by-abs.cpp)
+add_executable(study main.cpp)

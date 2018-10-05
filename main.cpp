@@ -4,34 +4,37 @@
 
 using namespace std;
 
-string to_lower_word (const string& s) {
-    string result;
-
-    for (const auto& ch : s) {
-        result += tolower(ch);
+class SortedStrings {
+public:
+    void AddString(const string& s) {
+        words.push_back(s);
     }
 
-    return result;
-}
+    vector<string> GetSortedStrings() {
+        sort(words.begin(), words.end());
+
+        return words;
+    }
+
+private:
+    vector<string> words;
+};
 
 int main () {
-    int count;
-    cin >> count;
+    SortedStrings ss;
+    ss.AddString("a");
+    ss.AddString("hello");
+    ss.AddString("a");
+    ss.AddString("bbb");
+    ss.AddString("zzZ");
 
-    vector<string> words(count);
+    ss.GetSortedStrings();
 
-    for (auto& el : words) {
-        cin >> el;
+    bool is_first = true;
+    for (const auto& s : ss.GetSortedStrings()) {
+        cout << (is_first ? "" : " ") << s;
+        is_first = false;
     }
-
-    sort(words.begin(), words.end(), [](string l, string r) {
-        return to_lower_word(l) < to_lower_word(r);
-    });
-
-    for (int i = 0; i < words.size(); i++) {
-        cout << (i == 0 ? "" : " ") << words[i];
-    }
-
     cout << endl;
 
     return 0;

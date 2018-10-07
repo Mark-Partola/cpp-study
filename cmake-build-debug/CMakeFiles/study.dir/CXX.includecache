@@ -9,8 +9,12 @@
 /Users/m.partola/CLionProjects/study/main.cpp
 iostream
 -
+map
+-
+set
+-
 vector
 -
-algorithm
+functional
 -
 

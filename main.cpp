@@ -1,23 +1,53 @@
-class Incognizable {
-public:
-    Incognizable() {}
+#include <string>
 
-    Incognizable(const int& a) {}
+using namespace std;
 
-    Incognizable(const int& a, const int& b) {}
+struct Specialization {
+    explicit Specialization (const string& spec) {
+        value = spec;
+    }
+
+    string value;
 };
 
-/*
- * struct Incognizable {
- *  int x = 0;
- *  int y = 0;
- * }
- */
+struct Course {
+    explicit Course (const string& course) {
+        value = course;
+    }
+
+    string value;
+};
+
+struct Week {
+    explicit Week (const string& week) {
+        value = week;
+    }
+
+    string value;
+};
+
+struct LectureTitle {
+    LectureTitle (
+            const Specialization& new_spec,
+            const Course& new_course,
+            const Week& new_week) {
+        specialization = new_spec.value;
+        course = new_course.value;
+        week = new_week.value;
+    }
+
+    string specialization;
+    string course;
+    string week;
+};
+
 
 int main() {
-    Incognizable a;
-    Incognizable b = {};
-    Incognizable c = {0};
-    Incognizable d = {0, 1};
+    LectureTitle title(
+            Specialization("C++"),
+            Course("White belt"),
+            Week("4th")
+    );
+
     return 0;
 }
